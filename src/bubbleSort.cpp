@@ -1,4 +1,4 @@
-#include "bubbleSort.h"
+#include "../include/bubbleSort.h"
 
 void bubbleSort(int  *Array, int  tamanhoVetor){
     int  n, auxiliar;

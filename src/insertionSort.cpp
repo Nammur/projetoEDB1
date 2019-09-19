@@ -1,4 +1,4 @@
-#include "insertionSort.h"
+#include "../include/insertionSort.h"
 
 
 //inicio do insertionSort

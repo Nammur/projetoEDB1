@@ -1,9 +1,9 @@
 #include <iostream>
 #include <time.h>
 #include <algorithm>
-#include "insertionSort.h"
-#include "bubbleSort.h"
-#include "quickSort.h"
+#include "../include/insertionSort.h"
+#include "../include/bubbleSort.h"
+#include "../include/quickSort.h"
 
 int main(){
     

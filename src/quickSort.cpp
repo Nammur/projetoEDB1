@@ -1,4 +1,4 @@
-#include "quickSort.h"
+#include "../include/quickSort.h"
 //#include "partition.h"
 
 int partition (int *Array, int inicio, int tamanhoVetor)  
