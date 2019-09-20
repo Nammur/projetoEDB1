@@ -1,110 +1,71 @@
 #include "../include/mergeSort.h"
-#include <chrono>
 
-/*
-void mergeSort(int *Array, int first, int middle, int auxiliar, int last, int tamanhoVetor){
-    int *MergeTemp = new int [tamanhoVetor];
-	int i, j, k;
-    i = first;
-    j = last;
-    k = 0;
-    //First = First. Last = middle. Auxiiliar1 = middle+1. Auxiliar2 = last. tamanhoVetor = last+1
-    //Comparacoes e ordenacao
-    while(i <= last && j <= auxiliar){
-        if(Array[i] < Array[j]){
-            MergeTemp[k++] = Array[i++];
-        }
-        else{
-            MergeTemp[k++] = Array[j++];
-        }
-    }
+void merge(int *Array, int l, int m, int r) 
+{ 
+	int i, j, k; 
+	int n1 = m - l +1; 
+	int n2 = r - m ; 
 
-    while(i <= last){
-        MergeTemp[k++] = Array[i++];
-    }
+	/* create temp arrays */
+	int L[n1], R[n2]; 
 
-    while(j <= last){
-        MergeTemp[k++] = Array[j++];
-    }
-    
-    //Realocacao do vetor temporario para o principal
-    for(i = first, j = 0; i <= last; i++, j++){
-        Array[i] = MergeTemp[j];
-    }
-}
+	/* Copy data to temp arrays L[] and R[] */
+	for (i = 0; i < n1; i++) 
+		L[i] = Array[l + i]; 
+	for (j = 0; j < n2; j++) 
+		R[j] = Array[m + 1+ j]; 
 
-void mergeSort(int *Array, int first, int last){
-    int middle;
+	/* Merge the temp arrays back into arr[l..r]*/
+	i = 0; // Initial index of first subarray 
+	j = 0; // Initial index of second subarray 
+	k = l; // Initial index of merged subarray 
+	while (i < n1 && j < n2) 
+	{ 
+		if (L[i] <= R[j]) 
+		{ 
+			Array[k] = L[i]; 
+			i++; 
+		} 
+		else
+		{ 
+			Array[k] = R[j]; 
+			j++; 
+		} 
+		k++; 
+	} 
 
-	std::cout << "\n";
+	/* Copy the remaining elements of L[], if there 
+	are any */
+	while (i < n1) 
+	{ 
+		Array[k] = L[i]; 
+		i++; 
+		k++; 
+	} 
 
-	for (int i = 0 ; i <= last ; i++){
-        std::cout << Array[i] << " ";
-    }
+	/* Copy the remaining elements of R[], if there 
+	are any */
+	while (j < n2) 
+	{ 
+		Array[k] = R[j]; 
+		j++; 
+		k++; 
+	} 
+} 
 
-    if(first < last){
-        middle = (first + last) / 2;
-        //Chamada recursiva para particionar o Array
-        mergeSort(Array, first, middle);
-        mergeSort(Array, middle+1, last);
-        mergeSort(Array, first, middle, middle + 1, last, last + 1);
-    }
-}
-*/
+/* l is for left index and r is right index of the 
+sub-array of arr to be sorted */
+void mergeSort(int *Array, int l, int r) 
+{ 
+	if (l < r) 
+	{ 
+		// Same as (l+r)/2, but avoids overflow for 
+		// large l and h 
+		int m = l+(r-l)/2; 
 
-void construcaoMerge(int Array, int first, int middle, int last){
-	int auxiliar01 = middle - first + 1;
-	int auxiliar02 = last - middle;
-
-	int k, i, j;
-
-	int *MergeTemp01 = new int [auxiliar01];
-	int *MergeTemp02 = new int [auxiliar02];
-
-	for (i = 0 ; i < auxiliar01 ; i++){
-		MergeTemp01[i] = Array[&first + i];
-	}
-
-	for(j = 0 ; j < auxiliar02 ; j++){
-		MergeTemp02[j] = Array[&middle + 1 + j];
-	}
-
-	i = 0;
-	j = 0;
-	k = first;
-
-	while(i < auxiliar01 && j < auxiliar02){
-		if(MergeTemp01[i] <= MergeTemp02[j]){
-			Array[&k] = MergeTemp01[i];
-			i++;
-		}
-		else{
-			Array[&k] = MergeTemp02[j];
-			j++;
-		}
-		first++;
-	}
-
-	while(i < auxiliar01){
-		Array[&k] = MergeTemp01[i];
-		i++;
-		k++;
-	}
-	while(j < auxiliar02){
-		Array[&k] = MergeTemp02[j];
-		j++;
-		k++;
-	}
-}
-
-void mergeSort(int *Array, int first, int last){
-	int middle;
-
-	if(first < last){
-		middle = (first + last) / 2;
-		mergeSort(Array, first, middle);
-		mergeSort(Array, middle + 1, last);
-		
-		construcaoMerge(*Array, first, middle, last);
-	}
-}
+		// Sort first and second halves 
+		mergeSort(Array, l, m); 
+		mergeSort(Array, m+1, r);
+		merge(Array, l, m, r); 
+	} 
+} 

@@ -1,10 +1,9 @@
 #include "../include/insertionSort.h"
-#include <chrono>
 
 
 //inicio do insertionSort
 
-void insertionSort(int  *Array,int  tamanhoVetor){
+void insertionSort(int *Array,int tamanhoVetor){
 
     int k, auxiliar, n;
     

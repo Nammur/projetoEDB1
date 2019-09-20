@@ -1,5 +1,4 @@
 #include "../include/bubbleSort.h"
-#include <chrono>
 
 void bubbleSort(int  *Array, int  tamanhoVetor){
     int  n;

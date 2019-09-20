@@ -2,6 +2,7 @@
 #include "../include/menu.h"
 
 void menu(int *Array, int *ArrayIndex,int tamanhoVetor, int selecaoVetor){
+    int i;
     int meioVetor = tamanhoVetor/2;
     int umQuartoVetor = tamanhoVetor/4;
     int range = 0;
@@ -43,4 +44,9 @@ void menu(int *Array, int *ArrayIndex,int tamanhoVetor, int selecaoVetor){
             std::random_shuffle(&Array[0], &Array[tamanhoVetor + 1]);          
           }
     }
+   /* for (i = 0 ; i <= tamanhoVetor -1 ; i++){
+        std::cout << Array[i] << " ";
+    }
+    std::cout << Array[i] << "\n";
+*/
 }
