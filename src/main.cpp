@@ -5,6 +5,12 @@
 #include "../include/bubbleSort.h"
 #include "../include/quickSort.h"
 #include "../include/shuf.h"
+#include "../include/mergeSort.h"
+
+    //Aplicacao do vetor particionado e comparacoes
+/* C program for Merge Sort */
+#include<stdlib.h> 
+#include<stdio.h> 
 
 int main(){
     
@@ -135,6 +141,7 @@ int main(){
     //Selecao do Merge Sort
     if(selecao == 6){
         // ======================MERGE SORT=================  
+        mergeSort(Array, inicio, tamanhoVetor); 
     }
 
     //Selecao do Radix Sort
