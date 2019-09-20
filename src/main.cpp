@@ -1,11 +1,14 @@
 #include <iostream>
 #include <time.h>
 #include <algorithm>
+#include <chrono>
+
 #include "../include/insertionSort.h"
 #include "../include/bubbleSort.h"
 #include "../include/quickSort.h"
 #include "../include/shuf.h"
 #include "../include/mergeSort.h"
+#include "../include/selectionSort.h"
 
     //Aplicacao do vetor particionado e comparacoes
 /* C program for Merge Sort */
@@ -20,7 +23,7 @@ int main(){
     //de forma aleatória.
     //Variaveis aleatórias até limiteAleatorio
     int valor = 0; 
-    int inicio = 0;
+    int begin = 0;
     int range = 0;
     int  selecao, selecaoVetor;;
     int  tamanhoVetor, i;
@@ -110,20 +113,34 @@ int main(){
     }
     //Selecao do Insertion Sort
     if (selecao == 1){
-        //Ordena os valores através do Insertion Sort    
+        //Ordena os valores através do Insertion Sort 
+        auto inicio = std::chrono::high_resolution_clock::now();  
         insertionSort(Array, tamanhoVetor);
         std::cout << "O arranjo foi ordenado com sucesso atraves do Insertion Sort\n" << std::endl;
+        auto resultado = std::chrono::high_resolution_clock::now() - inicio;
+        long long microseconds = std::chrono::duration_cast<std::chrono::microseconds>(resultado).count();
+        std::cout << "tempo de execução do insertion " << microseconds << " microsegundos \n";
     }
 
     //Selecao do Selection Sort
     if (selecao == 2){
         // ======================SELECTION SORT=================
+        auto inicio = std::chrono::high_resolution_clock::now(); 
+        SelectionSort(Array, tamanhoVetor);
+        std::cout << "O arranjo foi ordenado com sucesso atraves do Selection Sort\n" << std::endl;
+        auto resultado = std::chrono::high_resolution_clock::now() - inicio;
+        long long microseconds = std::chrono::duration_cast<std::chrono::microseconds>(resultado).count();
+        std::cout << "tempo de execução do Selection " << microseconds << " microsegundos \n";
     }
 
     //Selecao do Bubble Sort
     if (selecao == 3){
         //Ordena os valores através do Bubble Sort
+        auto inicio = std::chrono::high_resolution_clock::now();
         bubbleSort(Array, tamanhoVetor);
+        auto resultado = std::chrono::high_resolution_clock::now() - inicio;
+        long long microseconds = std::chrono::duration_cast<std::chrono::microseconds>(resultado).count();
+        std::cout << "tempo de execução do bubble " << microseconds << " microsegundos \n";
         std::cout << "O arranjo foi ordenado com sucesso atraves do Bubble Sort\n" << std::endl;
     }
 
@@ -134,14 +151,23 @@ int main(){
 
     //Selecao do Quick Sort
     if(selecao == 5){
-        quickSort(Array,inicio, tamanhoVetor);
-        std::cout << "O arranjo foi ordenado com sucesso atraves do Quick Sort\n" << std::endl;
+        auto inicio = std::chrono::high_resolution_clock::now();
+        quickSort(Array,begin, tamanhoVetor);
+        auto resultado = std::chrono::high_resolution_clock::now() - inicio;
+        long long microseconds = std::chrono::duration_cast<std::chrono::microseconds>(resultado).count();
+        std::cout << "tempo de execução do Quick " << microseconds << " microsegundos \n";
+        std::cout << "O arranjo foi ordenado com sucesso atraves do Quick\n" << std::endl;
     }
     
     //Selecao do Merge Sort
     if(selecao == 6){
         // ======================MERGE SORT=================  
-        mergeSort(Array, inicio, tamanhoVetor); 
+        auto inicio = std::chrono::high_resolution_clock::now();
+        mergeSort(Array, begin, tamanhoVetor); 
+        auto resultado = std::chrono::high_resolution_clock::now() - inicio;
+        long long microseconds = std::chrono::duration_cast<std::chrono::microseconds>(resultado).count();
+        std::cout << "tempo de execução do merge " << microseconds << " microsegundos \n";
+        std::cout << "O arranjo foi ordenado com sucesso atraves do merge\n" << std::endl;
     }
 
     //Selecao do Radix Sort
@@ -173,8 +199,5 @@ começar o programa com o vetor de tamanho maximo e usar somente faixas do vetor
 fazer o menu por linha de comando
 
 comentar com doxy
-
-ajeitar a desordenação do vetor criando um segundo vetor com os indices, dando um shuffle 
-nele e fazendo swap de dois elementos em dois
 
 */

@@ -1,5 +1,5 @@
 #include "../include/quickSort.h"
-//#include "partition.h"
+#include <chrono>
 
 int partition (int *Array, int inicio, int tamanhoVetor)  
 {  
@@ -23,15 +23,15 @@ int partition (int *Array, int inicio, int tamanhoVetor)
 Array[] --> Arrayay to be sorted,  
 inicio --> Starting index,  
 tamanhoVetor --> Ending index */
-void quickSort(int *Array, int inicio, int tamanhoVetor)  
+void quickSort(int *Array, int begin, int tamanhoVetor)  
 {  
-    if (inicio < tamanhoVetor)  
+    if (begin < tamanhoVetor)  
     {  
-        int pi = partition(Array, inicio, tamanhoVetor);  
+        int pi = partition(Array, begin, tamanhoVetor);  
   
         // Separately sort elements before  
         // partition and after partition  
-        quickSort(Array, inicio, pi - 1);  
+        quickSort(Array, begin, pi - 1);  
         quickSort(Array, pi + 1, tamanhoVetor);  
     }  
 }

@@ -1,4 +1,5 @@
 #include "../include/mergeSort.h"
+#include <chrono>
 
 void merge(int arr[], int l, int m, int r) 
 { 

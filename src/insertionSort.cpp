@@ -1,9 +1,11 @@
 #include "../include/insertionSort.h"
+#include <chrono>
 
 
 //inicio do insertionSort
 
 void insertionSort(int  *Array,int  tamanhoVetor){
+
     int k, auxiliar, n;
     
         //Percorre todo o vetor criado (Array)
@@ -21,5 +23,5 @@ void insertionSort(int  *Array,int  tamanhoVetor){
         //Próximo elemento do velor;
         Array[n+1] =  auxiliar;
     }
-}
+    }
 //final do insertioSort
