@@ -4,6 +4,7 @@
 #include "../include/insertionSort.h"
 #include "../include/bubbleSort.h"
 #include "../include/quickSort.h"
+#include "../include/shuf.h"
 
 int main(){
     
@@ -14,6 +15,7 @@ int main(){
     //Variaveis aleatórias até limiteAleatorio
     int valor = 0; 
     int inicio = 0;
+    int range = 0;
     int  selecao, selecaoVetor;;
     int  tamanhoVetor, i;
     std::cout << "Qual o tamanho do vetor?\n";
@@ -81,30 +83,18 @@ int main(){
 
             //50% ordenado
             if (selecaoVetor == 2){
-                while (elemento1 != meioVetor && elemento2 != meioVetor){
-                    std::swap(Array[ArrayIndex[elemento1]],Array[ArrayIndex[elemento2]]);
-                    elemento1 = elemento1 +2;
-                    elemento2 = elemento2 +2;
-                    std::cout  << "\n";
-                }
+                range = meioVetor;
+                shuf(Array, ArrayIndex, range, elemento1, elemento2);
             }
             //25% ordenado
             if (selecaoVetor == 3){
-                while (elemento1 != umQuartoVetor + meioVetor + 1 && elemento2 != umQuartoVetor + meioVetor + 1){
-                    std::swap(Array[ArrayIndex[elemento1]],Array[ArrayIndex[elemento2]]);
-                    elemento1 = elemento1 +2;
-                    elemento2 = elemento2 +2;
-                    std::cout  << "\n";
-                }
+                range = umQuartoVetor + meioVetor +1;
+                shuf(Array, ArrayIndex, range, elemento1, elemento2);
             }
             //75% ordenado
             if (selecaoVetor == 4){
-                while (elemento1 != umQuartoVetor + 1 && elemento2 != umQuartoVetor + 1){
-                    std::swap(Array[ArrayIndex[elemento1]],Array[ArrayIndex[elemento2]]);
-                    elemento1 = elemento1 +2;
-                    elemento2 = elemento2 +2;
-                    std::cout  << "\n";
-                }
+                range = umQuartoVetor +1;
+                shuf(Array, ArrayIndex, range, elemento1, elemento2);
             }
             //Todo aleatório
             if (selecaoVetor == 5){
@@ -157,13 +147,13 @@ int main(){
     for (i = 0 ; i <= tamanhoVetor ; i++){
         std::cout << Array[i] << " ";
     }
-    std::cout << "\n\n";
-    std::cout << "Vetor de referencia para troca\n";
+    std::cout << "\n";
+    /*std::cout << "Vetor de referencia para troca\n";
         //IMPRIMIR RESULTADO
     for (i = 0 ; i <= tamanhoVetor ; i++){
         std::cout << ArrayIndex[i] << " ";
     }
-    std::cout << "\n";
+    std::cout << "\n";*/
     return 0;
 }
 
