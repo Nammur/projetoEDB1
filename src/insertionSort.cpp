@@ -1,14 +1,10 @@
 #include "../include/insertionSort.h"
 
-
-//inicio do insertionSort
-
+//Implementacao do InsertionSort
 void insertionSort(int *Array,int tamanhoVetor){
-
     int k, auxiliar, n;
     
-        //Percorre todo o vetor criado (Array)
-    std::cout << "Ordenando com Insertion sort" << std::endl;
+    //Percorre todo o vetor criado (Array)
     for(k = 1 ; k<= tamanhoVetor ; k++){
         auxiliar = Array[k];
         n = k - 1;
@@ -22,5 +18,5 @@ void insertionSort(int *Array,int tamanhoVetor){
         //Próximo elemento do velor;
         Array[n+1] =  auxiliar;
     }
-    }
-//final do insertioSort
+}
+//final do InsertioSort

@@ -19,14 +19,3 @@ int gap = 1;
         gap = gap/2;
     }
 }
-/*int gap = tamanhoVetor/2;
-    do{
-        int aux;
-        for(i = 0; i < tamanhoVetor - gap; i++){
-            if(Array[i]>Array[i+gap]){
-               std::swap(Array[i],Array[i+gap]);
-            }
-        }
-        gap = gap/2;
-    } while( gap > 0);
-}*/

@@ -2,9 +2,10 @@
 #include <time.h>
 #include <algorithm>
 #include <chrono>
-#include<stdlib.h> 
-#include<stdio.h> 
+#include <stdlib.h> 
+#include <stdio.h> 
 
+// Arquivos de cabecalho das funcoes
 #include "../include/insertionSort.h"
 #include "../include/bubbleSort.h"
 #include "../include/quickSort.h"
@@ -65,75 +66,74 @@ int main(){
     quick com insertion ? ------
     
 */  
+    std::cout << "\n===============================\n"
+                 "===== COMECANDO ORDENACAO =====\n" 
+                 "===============================\n" << std::endl;
+
+    // InsertionSort
+    std::cout << "Ordenando com o InsertionSort" << std::endl;
     menu(Array, ArrayIndex, tamanhoVetor,selecaoVetor);
     auto inicio = std::chrono::high_resolution_clock::now();  
     insertionSort(Array, tamanhoVetor);
-    std::cout << "O arranjo foi ordenado com sucesso atraves do Insertion Sort\n" << std::endl;
     auto resultado = std::chrono::high_resolution_clock::now() - inicio;
     long long microseconds = std::chrono::duration_cast<std::chrono::microseconds>(resultado).count();
-    std::cout << "tempo de execução do insertion " << microseconds << " microsegundos \n";
-    std::cout << "\n";
+    std::cout << "Ordenacao concluida. Tempo de execução do insertionSort: " << microseconds << " microsegundos \n\n";
 
+    // SelectionSort
+    std::cout << "Ordenando com o SelectionSort" << std::endl;
     menu(Array, ArrayIndex, tamanhoVetor,selecaoVetor);
     auto inicio3 = std::chrono::high_resolution_clock::now(); 
     SelectionSort(Array, tamanhoVetor);
-    std::cout << "O arranjo foi ordenado com sucesso atraves do Selection Sort\n" << std::endl;
     auto resultado3 = std::chrono::high_resolution_clock::now() - inicio3;
     long long microseconds3 = std::chrono::duration_cast<std::chrono::microseconds>(resultado3).count();
-    std::cout << "tempo de execução do Selection " << microseconds3 << " microsegundos \n";
-    std::cout << "\n";
+    std::cout << "Ordenacao concluida. Tempo de execução do SelectionSort: " << microseconds3 << " microsegundos \n\n";
 
+    // BubbleSort
+    std::cout << "Ordenando com o BubbleSort" << std::endl;
     menu(Array, ArrayIndex, tamanhoVetor,selecaoVetor);
     auto inicio4 = std::chrono::high_resolution_clock::now();
     bubbleSort(Array, tamanhoVetor);
     auto resultado4 = std::chrono::high_resolution_clock::now() - inicio4;
     long long microseconds4 = std::chrono::duration_cast<std::chrono::microseconds>(resultado4).count();
-    std::cout << "tempo de execução do bubble " << microseconds4 << " microsegundos \n";
-    std::cout << "O arranjo foi ordenado com sucesso atraves do Bubble Sort\n" << std::endl;
-    std::cout << "\n";
+    std::cout << "Ordenacao concluida. Tempo de execução do BubbleSort: " << microseconds4 << " microsegundos \n\n";
 
+    // QuickSort
+    std::cout << "Ordenando com QuickSort" << std::endl;
     menu(Array, ArrayIndex, tamanhoVetor,selecaoVetor);
-    std::cout << "Ordenando com Quick sort" << std::endl;
     auto inicio5 = std::chrono::high_resolution_clock::now();
     quickSort(Array,begin, tamanhoVetor);
     auto resultado5 = std::chrono::high_resolution_clock::now() - inicio5;
     long long microseconds5 = std::chrono::duration_cast<std::chrono::microseconds>(resultado5).count();
-    std::cout << "tempo de execução do Quick " << microseconds5 << " microsegundos \n";
-    std::cout << "O arranjo foi ordenado com sucesso atraves do Quick\n" << std::endl;
-    std::cout << "\n";
+    std::cout << "Ordenacao concluida. Tempo de execução do QuickSort: " << microseconds5 << " microsegundos \n\n";
 
-
+    // MergeSort
+    std::cout << "Ordenando com MergeSort" << std::endl;
     menu(Array, ArrayIndex, tamanhoVetor,selecaoVetor);
-    std::cout << "Ordenando com Merge sort" << std::endl;
     auto inicio2= std::chrono::high_resolution_clock::now();
     mergeSort(Array, begin, tamanhoVetor); 
     auto resultado2 = std::chrono::high_resolution_clock::now() - inicio2;
     long long microseconds2 = std::chrono::duration_cast<std::chrono::microseconds>(resultado2).count();
-    std::cout << "tempo de execução do merge " << microseconds2 << " microsegundos \n";
-    std::cout << "O arranjo foi ordenado com sucesso atraves do merge\n" << std::endl;
-    std::cout << "\n";
+    std::cout << "Ordenacao concluida. Tempo de execução do MergeSort: " << microseconds2 << " microsegundos \n\n";
 
+    // ShellSort
+    std::cout << "Ordenando com ShellSort" << std::endl;
     menu(Array, ArrayIndex, tamanhoVetor,selecaoVetor);
-    std::cout << "\nOrdenando com Shell sort\n" << std::endl;
     auto inicio6= std::chrono::high_resolution_clock::now();
     shellSort(Array, tamanhoVetor); 
     auto resultado6 = std::chrono::high_resolution_clock::now() - inicio6;
     long long microseconds6 = std::chrono::duration_cast<std::chrono::microseconds>(resultado6).count();
-    std::cout << "tempo de execução do Shell " << microseconds6 << " microsegundos \n";
-    std::cout << "O arranjo foi ordenado com sucesso atraves do Shell\n" << std::endl;
-    std::cout << "\n";
-    std::cout << "\n";
+    std::cout << "Ordenacao concluida. Tempo de execução do ShellSort: " << microseconds6 << " microsegundos \n\n";
 
+    // RadixSort
+    std::cout << "Ordenando com RadixSort" << std::endl;
     menu(Array, ArrayIndex, tamanhoVetor,selecaoVetor);
-    std::cout << "\nOrdenando com Radix sort\n" << std::endl;
     auto inicio7= std::chrono::high_resolution_clock::now();
     radixSort(Array, tamanhoVetor); 
     auto resultado7 = std::chrono::high_resolution_clock::now() - inicio7;
     long long microseconds7 = std::chrono::duration_cast<std::chrono::microseconds>(resultado7).count();
-    std::cout << "tempo de execução do Radix " << microseconds7 << " microsegundos \n";
-    std::cout << "O arranjo foi ordenado com sucesso atraves do Radix\n" << std::endl;
-    std::cout << "\n";
-    std::cout << "\n";
+    std::cout << "Ordenacao concluida. Tempo de execução do RadixSort: " << microseconds7 << " microsegundos \n\n";
+    
+
     return 0;
 }
 
