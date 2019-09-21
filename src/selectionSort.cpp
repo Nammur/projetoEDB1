@@ -1,6 +1,5 @@
 #include "../include/selectionSort.h"
 
-
 void SelectionSort(int *Array, int tam) {
     std::cout << "Ordenando com Selection sort" << std::endl;
     for (int indice = 0; indice < tam; ++indice) {

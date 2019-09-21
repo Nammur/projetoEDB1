@@ -1,7 +1,7 @@
 #include "../include/quickSort.h"
 #include <chrono>
 
-int partition (int *Array, int inicio, int tamanhoVetor)  
+int partition(int *Array, int inicio, int tamanhoVetor)  
 {  
     int pivot = Array[tamanhoVetor]; // pivot  
     int i = (inicio - 1); // Index of smaller element  

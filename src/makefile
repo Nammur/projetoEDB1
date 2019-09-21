@@ -1,24 +1,23 @@
-output: bubbleSort.o insertionSort.o main.o menu.o mergeSort.o quickSort.o selectionSort.o shuf.o shellSort.o radixSort.o
-	g++ -std=c++11 -Wall -I include main.o bubbleSort.o insertionSort.o menu.o mergeSort.o quickSort.o selectionSort.o shuf.o
-main.o: main.cpp menu.h
-	g++ -c main.cpp -Wall -ansi -pedantic
-bubbleSort.o: bubbleSort.cpp bubbleSort.h
-	g++ -c bubbleSort.cpp -Wall -I include -ansi -pedantic
-insertionSort.o: insertionSort.cpp insertionSort.h
-	g++ -c insertionSort.cpp -Wall -ansi -pedantic
-menu.o: menu.cpp menu.h
-	g++ -c menu.cpp -Wall -ansi -pedantic
-mergeSort.o: mergeSort.cpp mergeSort.h
-	g++ -c mergeSort.cpp -Wall -ansi -pedantic
-quickSort.o: quickSort.cpp mergeSort.h
-	g++ -c quickSort.cpp -Wall -ansi -pedantic
-selectionSort.o: selectionSort.cpp selectionSort.h
-	g++ -c selectionSort.cpp -Wall -ansi -pedantic
-shuf.o: shuf.cpp shuf.h
-	g++ -c shuf.cpp -Wall -ansi -pedantic
-shellSort.o: shellSort.cpp shellSort.h
-	g++ -c shellSort.cpp -Wall -ansi -pedantic
-radixSort.o: radixSort.cpp radixSort.h
-	g++ -c radixSort.cpp -Wall -ansi -pedantic
-clean:
-	rm *.o output
+output:	bubbleSort.o insertionSort.o main.o menu.o mergeSort.o quickSort.o selectionSort.o shuf.o shellSort.o radixSort.o
+	g++ -std=c++11 -Wall bubbleSort.o insertionSort.o main.o menu.o mergeSort.o quickSort.o selectionSort.o shuf.o shellSort.o radixSort.o -o consulta -lm -I include/
+	-rm *.o
+main.o:
+		g++ -std=c++11 -o main.o -c main.cpp -Wall 
+bubbleSort.o:
+	g++ -o bubbleSort.o -c bubbleSort.cpp -Wall -std=c++11
+insertionSort.o:
+	g++ -o insertionSort.o -c insertionSort.cpp -Wall -std=c++11
+menu.o:
+	g++ -o menu.o -c menu.cpp -Wall -std=c++11
+mergeSort.o:
+	g++ -o mergeSort.o -c mergeSort.cpp -Wall -std=c++11
+quickSort.o:
+	g++ -o quickSort.o -c quickSort.cpp -Wall -std=c++11
+selectionSort.o:
+	g++ -o selectionSort.o -c selectionSort.cpp -Wall -std=c++11
+shuf.o:
+	g++ -o shuf.o -c shuf.cpp -Wall -std=c++11
+radixSort.o:
+	g++ -o radixSort.o -c radixSort.cpp -Wall -std=c++11
+shellSort.o:
+	g++ -o shellSort.o -c shellSort.cpp -Wall -std=c++11

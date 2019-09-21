@@ -2,7 +2,6 @@
 #include "../include/menu.h"
 
 void menu(int *Array, int *ArrayIndex,int tamanhoVetor, int selecaoVetor){
-    int i;
     int meioVetor = tamanhoVetor/2;
     int umQuartoVetor = tamanhoVetor/4;
     int range = 0;
@@ -51,14 +50,12 @@ void menu(int *Array, int *ArrayIndex,int tamanhoVetor, int selecaoVetor){
     std::cout << Array[i] << "\n";
 */
 void copiar(int *Array, int *copia, int tamanhoVetor){
-    int i;
     for (int i = 0; i < tamanhoVetor; i++){
        copia[i] = Array[i];
     }
      return;
 }
 void copiarReverso(int *Array, int *copia, int tamanhoVetor){
-    int i;
     for (int i = 0; i < tamanhoVetor; i++){
        Array[i] = copia[i];
     }
