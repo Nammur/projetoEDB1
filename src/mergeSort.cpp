@@ -1,6 +1,75 @@
 #include "../include/mergeSort.h"
 
-//Implementação do MergeSort
+/*void merge(int *Array, int l, int m, int r) 
+{ 
+	int i, j, k; 
+	int n1 = m - l +1; 
+	int n2 = r - m ; 
+
+	// create temp arrays
+	int L[n1], R[n2]; 
+
+	// Copy data to temp arrays L[] and R[]
+	for (i = 0; i < n1; i++) 
+		L[i] = Array[l + i]; 
+	for (j = 0; j < n2; j++) 
+		R[j] = Array[m + 1+ j]; 
+
+	// Merge the temp arrays back into arr[l..r]
+	i = 0; // Initial index of first subarray 
+	j = 0; // Initial index of second subarray 
+	k = l; // Initial index of merged subarray 
+	while (i < n1 && j < n2) 
+	{ 
+		if (L[i] <= R[j]) 
+		{ 
+			Array[k] = L[i]; 
+			i++; 
+		} 
+		else
+		{ 
+			Array[k] = R[j]; 
+			j++; 
+		} 
+		k++; 
+	} 
+
+	//Copy the remaining elements of L[], if there 
+	//are any
+	while (i < n1) 
+	{ 
+		Array[k] = L[i]; 
+		i++; 
+		k++; 
+	} 
+
+	// Copy the remaining elements of R[], if there 
+	a//re any 
+	while (j < n2) 
+	{ 
+		Array[k] = R[j]; 
+		j++; 
+		k++; 
+	} 
+} 
+
+// l is for left index and r is right index of the 
+//sub-array of arr to be sorted 
+void mergeSort(int *Array, int l, int r) 
+{ 
+	if (l < r) 
+	{ 
+		// Same as (l+r)/2, but avoids overflow for 
+		// large l and h 
+		int m = l+(r-l)/2; 
+
+		// Sort first and second halves 
+		mergeSort(Array, l, m); 
+		mergeSort(Array, m+1, r);
+		merge(Array, l, m, r); 
+	} 
+} 
+*/
 void merge(int *Array, int left, int middle, int right) { 
 	// Auxiliares para determinar o tamanho do vetor
 	int auxiliarLeft = middle - left + 1; 
@@ -69,4 +138,3 @@ void mergeSort(int *Array, int left, int right){
 		merge(Array, left, middle, right); 
 	} 
 }
-// Fim QuickSort 

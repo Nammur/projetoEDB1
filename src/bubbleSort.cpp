@@ -1,10 +1,10 @@
 #include "../include/bubbleSort.h"
 
-//Implementacao do BubbleSort
 void bubbleSort(int  *Array, int  tamanhoVetor){
     int  n;
     int  k;
     //Percorre todo o vetor criado (Array)
+    std::cout << "Ordenando com Bubble sort" << std::endl;
     for(k = 0 ; k < tamanhoVetor ; k++){
         //Percorrer o vetor procurando os pares para fazermos a troca
         for(n = 0; n < tamanhoVetor - k ; n++){
@@ -16,4 +16,3 @@ void bubbleSort(int  *Array, int  tamanhoVetor){
         }
     }
 }
-// Fim BubbleSort

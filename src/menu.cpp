@@ -44,9 +44,30 @@ void menu(int *Array, int *ArrayIndex,int tamanhoVetor, int selecaoVetor){
             std::random_shuffle(&Array[0], &Array[tamanhoVetor + 1]);          
           }
     }
+}
    /* for (i = 0 ; i <= tamanhoVetor -1 ; i++){
         std::cout << Array[i] << " ";
     }
     std::cout << Array[i] << "\n";
 */
+void copiar(int *Array, int *copia, int tamanhoVetor){
+    int i;
+    for (int i = 0; i < tamanhoVetor; i++){
+       copia[i] = Array[i];
+    }
+     return;
+}
+void copiarReverso(int *Array, int *copia, int tamanhoVetor){
+    int i;
+    for (int i = 0; i < tamanhoVetor; i++){
+       Array[i] = copia[i];
+    }
+    return;
+}
+void printArray(int *Array, int tamanhoVetor){
+    int i;
+    for (i = 0; i < tamanhoVetor; i++){
+        std::cout << Array[i];
+        std::cout << " ";
+    }
 }
