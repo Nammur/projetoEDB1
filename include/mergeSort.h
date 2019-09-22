@@ -2,4 +2,4 @@
 #include <time.h>
 #include <algorithm>
 
-void mergeSort(int arr[], int l, int r);
+void mergeSort(int *Array, int begin, int tamanhoVetor);

@@ -11,7 +11,7 @@ void menu(int *Array, int *ArrayIndex,int tamanhoVetor, int selecaoVetor){
         first = 0;
         last = tamanhoVetor;
         while (first < last){
-            std::swap(Array[first],Array[last]);
+            std::swap(Array[first],Array[last - 1]);
             first ++;
             last --;   
         }
@@ -19,7 +19,7 @@ void menu(int *Array, int *ArrayIndex,int tamanhoVetor, int selecaoVetor){
 
     if (selecaoVetor == 2 || selecaoVetor == 3 || selecaoVetor == 4 || selecaoVetor == 5 ){
 
-        std::random_shuffle(&ArrayIndex[0], &ArrayIndex[tamanhoVetor +1]);
+        std::random_shuffle(&ArrayIndex[0], &ArrayIndex[tamanhoVetor]);
         int elemento1 = 0;
         int elemento2 = 1;
 
@@ -40,7 +40,7 @@ void menu(int *Array, int *ArrayIndex,int tamanhoVetor, int selecaoVetor){
         }
             //Todo aleatório
         if (selecaoVetor == 5){
-            std::random_shuffle(&Array[0], &Array[tamanhoVetor + 1]);          
+            std::random_shuffle(&Array[0], &Array[tamanhoVetor]);          
           }
     }
 }

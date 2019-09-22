@@ -1,5 +1,5 @@
-output:	bubbleSort.o insertionSort.o main.o menu.o mergeSort.o quickSort.o selectionSort.o shuf.o shellSort.o radixSort.o
-	g++ -std=c++11 -Wall bubbleSort.o insertionSort.o main.o menu.o mergeSort.o quickSort.o selectionSort.o shuf.o shellSort.o radixSort.o -o consulta -lm -I include/
+output:	bubbleSort.o insertionSort.o main.o menu.o mergeSort.o quickSort.o selectionSort.o shuf.o shellSort.o radixSort.o quickInsertion2.o
+	g++ -std=c++11 -Wall bubbleSort.o insertionSort.o main.o menu.o mergeSort.o quickSort.o selectionSort.o shuf.o shellSort.o radixSort.o quickInsertion2.o -o consulta -lm -I include/
 	-rm *.o
 main.o:
 		g++ -std=c++11 -o main.o -c main.cpp -Wall 
@@ -21,3 +21,5 @@ radixSort.o:
 	g++ -o radixSort.o -c radixSort.cpp -Wall -std=c++11
 shellSort.o:
 	g++ -o shellSort.o -c shellSort.cpp -Wall -std=c++11
+quickInsertion2.o:
+	g++ -o quickInsertion2.o -c quickInsertion2.cpp -Wall -std=c++11

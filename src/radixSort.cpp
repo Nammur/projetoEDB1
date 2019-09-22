@@ -1,54 +1,65 @@
 #include "../include/radixSort.h"
 
-// A utility function to get maximum value in arr[] 
-int getMax(int *Array, int tamanhoVetor) 
-{ 
-	int mx = Array[0]; 
-	for (int i = 1; i < tamanhoVetor; i++) 
-		if (Array[i] > mx) 
-			mx = Array[i]; 
-	return mx; 
+// ==================================================================================
+// COMENTARIO:
+//*		O RadixSort junto com o ShellSort foram complicados para entender/implementar
+//*		já que não foi nos dada uma explicação sobre esses algoritmos e tivemos que 
+//*		fazer a pesquisa "as cegas", ainda sim, cremos que o resultado esteja
+//*		correto e satisfatório (otimizado), já que nos baseamos em outro algoritmo já
+//*		disponibilizado na internet
+// ==================================================================================
+// Implementacao do RadixSort
+int valorMaximo(int *Array, int tamanhoVetor){
+	int maximo = Array[0]; 
+	
+	// Percorre o vetor procumando o maio valor
+	// dentre os elementos
+	for (int i = 1; i < tamanhoVetor; i++){ 
+		if (Array[i] > maximo){ 
+			maximo = Array[i];
+		}
+	}
+
+	return maximo; 
 } 
 
-// A function to do counting sort of arr[] according to 
-// the digit represented by exp. 
-void countSort(int *Array, int tamanhoVetor, int exp) 
-{ 
-	int output[tamanhoVetor]; // output array 
-	int i, count[10] = {0}; 
+// Ordenação dos elemtos
+void Sort(int *Array, int tamanhoVetor, int exponencial){ 
+	int i, contador[10] = {0};
 
-	// Store count of occurrences in count[] 
-	for (i = 0; i < tamanhoVetor; i++) 
-		count[ (Array[i]/exp)%10 ]++; 
+	// Vetor temporario
+	int radixTemp[tamanhoVetor];
 
-	// Change count[i] so that count[i] now contains actual 
-	// position of this digit in output[] 
-	for (i = 1; i < 10; i++) 
-		count[i] += count[i - 1]; 
+	for (i = 0; i < tamanhoVetor; i++){
+		contador[ (Array[i]/exponencial) % 10 ]++; 
+	}
 
-	// Build the output array 
-	for (i = tamanhoVetor - 1; i >= 0; i--) 
-	{ 
-		output[count[ (Array[i]/exp)%10 ] - 1] = Array[i]; 
-		count[ (Array[i]/exp)%10 ]--; 
+	for (i = 1; i < 10; i++){
+		contador[i] += contador[i - 1]; 
+	}
+
+	// Construcao do vetor temporario 
+	for (i = tamanhoVetor - 1; i >= 0; i--){ 
+		radixTemp[contador[ (Array[i]/exponencial) % 10 ] - 1] = Array[i]; 
+		contador[ (Array[i]/exponencial) % 10 ]--; 
 	} 
 
-	// Copy the output array to arr[], so that arr[] now 
-	// contains sorted numbers according to current digit 
-	for (i = 0; i < tamanhoVetor; i++) 
-		Array[i] = output[i]; 
+	// Copia dos valores do vetor tmeporario
+	// para o vetor final 
+	for (i = 0; i < tamanhoVetor; i++){
+		Array[i] = radixTemp[i];
+	}
 } 
 
-// The main function to that sorts arr[] of size n using 
-// Radix Sort 
-void radixSort(int *Array, int tamanhoVetor) 
-{ 
-	// Find the maximum number to know number of digits 
-	int m = getMax(Array, tamanhoVetor); 
+void radixSort(int *Array, int tamanhoVetor){
+	// Funcao para encontrar o maior valor entre os elemntos
+	// dos vetores 
+	int maximo = valorMaximo(Array, tamanhoVetor);
+	int exponencial;
 
-	// Do counting sort for every digit. Note that instead 
-	// of passing digit number, exp is passed. exp is 10^i 
-	// where i is current digit number 
-	for (int exp = 1; m/exp > 0; exp *= 10) 
-		countSort(Array, tamanhoVetor, exp); 
-} 
+	// Passar o maior valor exponencial, da forma 10^i 
+	for (exponencial = 1; maximo / exponencial > 0; exponencial *= 10){ 
+		Sort(Array, tamanhoVetor, exponencial);
+	}
+}
+// Fim RadixSort
