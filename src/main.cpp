@@ -1,20 +1,4 @@
-#include <iostream>
-#include <time.h>
-#include <algorithm>
-#include <chrono>
-#include <fstream>
-#include <string>
-
-#include "../include/insertionSort.h"
-#include "../include/bubbleSort.h"
-#include "../include/quickSort.h"
-#include "../include/shuf.h"
-#include "../include/mergeSort.h"
-#include "../include/selectionSort.h"
-#include "../include/menu.h"
-#include "../include/shellSort.h"
-#include "../include/radixSort.h"
-#include "../include/quickInsertion2.h"
+#include "../include/includeGeral.h"
 
 int main(){
     srand (time(NULL));
@@ -77,7 +61,7 @@ int main(){
         std::cout << "Escreva a quantidade de tamanhos para o vetor que deseja testar:";
         std::cin >> quantidadeTamanhos;
         int arrayTamanhos[quantidadeTamanhos];
-        std::cout << "Escreva a quais os valores de tamanhos para o vetor que deseja testar:";
+        std::cout << "Escreva quais os valores de tamanhos para o vetor que deseja testar:";
         for (indice = 0 ; indice <= quantidadeTamanhos -1 ; indice++){
             std::cin >> valoresVetor;
             arrayTamanhos[indice] = valoresVetor;
@@ -319,8 +303,3 @@ int main(){
     }
     return 0;
 }
-
-//fazer uma variavel com a quantidade de vezes que quer rodar para cada tamanho de vetor.
-//para limpar o arquivo, o vetorPos e a quantidade de vezes tem q estar no valor inicial.
-//mudar o destino dos arquivos para a pasta com o tamanho do vetor
-// ou fazer a media dos valores ja no programa e gravar no arquivo apenas a media
